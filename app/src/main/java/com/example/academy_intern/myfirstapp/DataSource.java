@@ -45,12 +45,12 @@ public class DataSource extends AppCompatActivity {
         Intent intent = getIntent();
 
         String username = intent.getStringExtra("Username");
-        String age = intent.getStringExtra("Age");
+        int age = intent.getIntExtra("Age",-1);
         String id = intent.getStringExtra("Email") ;
 
 
         Username.setText(username);
-        Age.setText(age);
+        Age.setText(age+"");
         Id.setText(id);
 
 
@@ -62,7 +62,10 @@ public class DataSource extends AppCompatActivity {
 
                 String result =  searchMethod(searchN);
 
-                searchResult.setText(result);
+
+                    searchResult.setText(result);
+
+
 
             }
         });
@@ -107,12 +110,12 @@ public class DataSource extends AppCompatActivity {
 
             if(user.getUsername().equals(search)){
 
-                return user.getAge();
+                return user.getEmail();
 
             }
 
         }
-        return "User not Registered";
+        return "User Not Registered";
     }
 }
 
